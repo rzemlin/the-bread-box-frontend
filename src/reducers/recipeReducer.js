@@ -54,20 +54,3 @@ const recipeReducer = (state = {recipes: [], loading: false}, action) => {
     }
 }
 export  default recipeReducer
-
-
-
-
-
-
-
-
-
-
-
-}
-
-
-
-
-})

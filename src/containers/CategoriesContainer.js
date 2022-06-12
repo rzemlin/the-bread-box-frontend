@@ -3,7 +3,7 @@ import React from 'react';
 const CategoriesContainer = () => {
     return (
         <div>
-        <h4>This is the home page</h4>
+        <h4>This is the Categories page</h4>
         </div>
      )
     }

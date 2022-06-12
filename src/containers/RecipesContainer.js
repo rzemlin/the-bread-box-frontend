@@ -8,4 +8,4 @@ const RecipesContainer = () => {
      )
     }
 
-    export  default RecipesContainer 
+    export default RecipesContainer 
