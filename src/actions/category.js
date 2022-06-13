@@ -9,7 +9,7 @@ export const getCategories = () => {
     }
 }
 
-export const addCategory = () => {
+export const addCategory = (category) => {
 
     return(dispatch) => {
         dispatch({type: "ADDING_CATEGORY"})
@@ -32,7 +32,6 @@ export const deleteCategory = (id) => {
         dispatch({type: "DELETE_CATEGORY"})
         fetch(`http://localhost:4000/api/v1/categories/${id}`, {
         method: "DELETE",
-        body: JSON.stringify(category),
         headers: {
             "content-type" : "application/json" 
         }

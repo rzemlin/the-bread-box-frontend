@@ -1,11 +1,11 @@
 import React from 'react';
 
-const RecipesContainer = () => {
+const CategoriesContainer = () => {
     return (
         <div>
-        <h4>This is the recipes page</h4>
+        <h4>This is the Categories page</h4>
         </div>
      )
     }
 
-    export default RecipesContainer 
+    export  default CategoriesContainer 

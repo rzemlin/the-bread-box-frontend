@@ -9,7 +9,7 @@ export const getRecipes = () => {
     }
 }
 
-export const addRecipe = () => {
+export const addRecipe = (recipe) => {
 
     return(dispatch) => {
         dispatch({type: "ADDING_RECIPE"})
@@ -29,10 +29,9 @@ export const addRecipe = () => {
 export const deleteRecipe = (id) => {
 
     return(dispatch) => {
-        dispatch({type: "DELETE_RECIPE"})
+        dispatch({type: "DELETING_RECIPE"})
         fetch(`http://localhost:4000/api/v1/recipes/${id}`, {
         method: "DELETE",
-        body: JSON.stringify(recipe),
         headers: {
             "content-type" : "application/json" 
         }
@@ -42,3 +41,19 @@ export const deleteRecipe = (id) => {
 
     }
 }
+
+export const editRecipe = (recipe) => {
+    return (dispatch) => {
+        fetch(`http://localhost:4000/api/v1/recipes/${recipe.id}`, {
+        headers: {
+            "content-type" : "application/json" 
+            },
+        method: "PATCH",
+        body: JSON.stringify(recipe),
+    })
+    .then(res => res.json())
+    .then(recipe => dispatch({type: "RECIPE_EDITED", payload: recipe}))
+
+    }
+}
+    

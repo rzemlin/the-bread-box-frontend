@@ -33,7 +33,7 @@ const categoryReducer = (state = {categories: [], loading: false}, action) => {
                 loading: false
         }
 
-        case "DELETING_CATEGORY":
+        case "DELETING_RECIPE":
             return {
                 ...state,
                 loading: true

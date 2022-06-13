@@ -5,7 +5,7 @@ const recipeReducer = (state = {recipes: [], loading: false}, action) => {
         
         case "LOADING_RECIPES":
             //this has to match an action in the action folder
-            console.log("called action")
+            console.log("called loading action")
             return {
                 ...state,
                 loading: true
@@ -13,6 +13,7 @@ const recipeReducer = (state = {recipes: [], loading: false}, action) => {
 
         case "RECIPES_LOADED":
             // returns an array of data called payload
+            console.log("recipes loaded")
             return {
                 ...state,
                 recipes: action.payload.data,
@@ -40,11 +41,17 @@ const recipeReducer = (state = {recipes: [], loading: false}, action) => {
                 loading: true
         }
 
-        case "RECIPE_DELETED":
+        case "DELETING_CATEGORY":
             return {
                 ...state,
                 recipes: [...state.recipes.filter(recipe => `${recipe.id}` !== action.payload)],
                 loading: false
+            }
+
+        case "RECIPE_EDITED":
+            return {
+                ...state,
+                recipe:[...state.recipe.map(recipe => recipe.id === action.recipe.id ? action.recipe : recipe)]
             }
 
 
