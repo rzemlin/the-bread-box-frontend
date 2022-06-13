@@ -10,7 +10,7 @@ function initialLoad(props) {
 
     const {id} = useParams()
 
-    const recipes = props.recipes.filter(recipe => recipe.id === id)[0]
+    const recipe = props.recipes.filter(recipe => recipe.id === id)[0]
     console.log(props.recipes.filter(recipe => recipe.id === id))
 
     useEffect(() => {
@@ -20,7 +20,7 @@ function initialLoad(props) {
             console.log(data.data)})
         },[])
 
-        const recipe = recipes.filter(recipe => recipe.attributes.category_id == id)
+        const category = recipes.filter(recipe => recipe.attributes.category_id == id)
 
         const recipes = recipes.map((recipe, i) => {return < RecipesContainer
         key={i}
@@ -38,7 +38,7 @@ function initialLoad(props) {
             <p>Description: {recipe.attributes.description}</p>
             <p>Ingredients: {recipe.attributes.ingredients}</p>
             <h4>Category</h4>
-            {recipe}
+            {category}
             </div>    
         );    
         
